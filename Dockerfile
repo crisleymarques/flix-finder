@@ -3,7 +3,8 @@ FROM python:3.10
 ENV PYTHONUNBUFFERED=0
 
 WORKDIR /app
-COPY ./src/requirements.txt /app/
+
+COPY ./requirements.txt /app/
 
 RUN pip install -r requirements.txt
 
