@@ -24,6 +24,29 @@ FlixFinder is a movie and TV series recommendation tool. Discover your next bing
 ### - Prerequisites
 You need to have installed on your machine [Git](https://git-scm.com), [Python3](https://www.python.org/).
 
+### Clone this repository
+```bash
+git clone https://github.com/crisleymarques/flix-finder.git
+```
+
+### Set up your OpenAI API Key
+1. Create an account on [OpenAI](https://beta.openai.com/).
+2. Create an API Key and copy it.
+3. Go to the project folder and create a file named .env substituting the 'your_openai_api_key' with your API Key.
+```bash
+echo "OPENAI_API_KEY = 'your_openai_api_key'" > src/.env
+```
+### Running the project
+1. Go to the project folder and build the docker image.
+```bash
+docker build -t fastapi/flixfinder . 
+```
+2. Run the docker image.
+```bash
+docker run -p 8000:8000 fastapi/flixfinder
+```
+3. Open your browser and go to http://localhost:8000.
+4. Enjoy! 🎉
 ## Authors 🧑‍💻
 
 | [<img src="https://avatars.githubusercontent.com/u/44072771?s=400&u=b17d945fa43dec67a69d1cb11e2f23a7b2e0ad95&v=4" width="120px;"/><br /><sub><b>Crisley Marques</b></sub>](https://github.com/crisleymarques) <br/> | [<img src="https://avatars.githubusercontent.com/u/62178110?v=4" width="120px;" /><br /><sub><b>Luiz Carlos</b></sub>](https://github.com/LuizCarlosXavier) <br/> | 
