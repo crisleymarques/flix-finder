@@ -33,7 +33,7 @@ def get_prompt(movie_description):
 
     {movie_description.movie_reference} é um filme {movie_description.genre} lançado em {movie_description.decade}.
     Acredito que este filme seja uma excelente recomendação para você, pois compartilha características similares com {movie_description.movie_reference}.
-    Ele é conhecido por {descrição_do_filme_aqui}.
+    Ele é conhecido por sua inovadora utilização de efeitos visuais e temas filosóficos.
 
     ---
 
@@ -46,14 +46,7 @@ def get_prompt(movie_description):
     Curiosidade sobre {movie_description.movie_reference}:
 
     Aqui está uma curiosidade interessante sobre o filme {movie_description.movie_reference}:
-    {curiosidade_sobre_o_filme_aqui}.
-
-    ---
-
-    Outra recomendação:
-
-    Além disso, se você gostou de {movie_description.movie_reference}, recomendo também o filme {outro_filme_similar} lançado em {ano_do_outro_filme}.
-    Ele possui uma atmosfera semelhante e tenho certeza de que você vai apreciar.
+    O famoso efeito de câmera "bullet time", que foi popularizado por {movie_description.movie_reference}, foi criado através de uma técnica revolucionária de filmagem.
 
     ---
 
