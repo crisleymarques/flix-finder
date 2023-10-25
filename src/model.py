@@ -21,7 +21,7 @@ def get_prompt(genre, decade, age_rating, movie_reference):
     aplicação.
     
     Recomende um filme do gênero: {genre}, 
-    com data de lançamento entre {decade} e {decade + 9},
+    com data de lançamento entre {decade.value} e {int(decade.value) + 9},
     com classificação indicativa: {age_rating},
     que possua características similares à {movie_reference}.
 

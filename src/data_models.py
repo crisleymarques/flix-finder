@@ -30,7 +30,9 @@ class Genre(str, Enum):
 
 
 def create_decades_enum():
-    items = {f'DEC_{str(i)}': str(i) for i in range(1900, datetime.now().year, 10)}
+    current_year = datetime.now().year
+    start_year = current_year - (current_year % 10)
+    items = {f'{str(i)}': str(i) for i in range(start_year, 1900, -10)}
     return Enum('Decades', items)
 
 Decades = create_decades_enum()
