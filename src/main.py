@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from data_models import MovieDescription
+from fastapi import FastAPI, Form
+from data_models import *
 from model import get_prompt, get_completion
 
 flixfinder = FastAPI()
@@ -9,7 +9,12 @@ def home():
     return "Welcome to FlixFinder!"
 
 @flixfinder.post("/chat")
-def send_prompt(movie_description: MovieDescription):
-    prompt = get_prompt(movie_description)
+def send_prompt(
+    genre: Genre,
+    decade: Decades,
+    age_rating: AgeRating,
+    movie_reference: str, 
+):
+    prompt = get_prompt(genre, decade, age_rating, movie_reference)
     print(prompt, flush=True)
     return get_completion(prompt)
