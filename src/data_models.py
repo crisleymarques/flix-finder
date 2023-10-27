@@ -1,32 +1,42 @@
 from enum import Enum
 from datetime import datetime
 
+class SeriesOrMovie(str, Enum):
+    series = "TV series"
+    movie = "Movie"
+
+
 class AgeRating(str, Enum):
-    livre = "Livre"
-    dez_anos = "10 Anos"
-    doze_anos = "12 Anos"
-    quatorze_anos = "14 Anos"
-    dezesseis_anos = "16 Anos"
-    dezoito_anos = "18 Anos"
+    G = "General Audiences"
+    PG = "Parental Guidance Suggested"
+    PG_13 = "Parents Strongly Cautioned"
+    R = "Restricted"
+    NC_17 = "Adults Only"
 
 
 class Genre(str, Enum):
-    acao = "Ação"
-    aventura = "Aventura"
-    comedia = "Comédia"
+    action = "Action"
+    adventure = "Adventure"
+    comedy = "Comedy"
     drama = "Drama"
-    fantasia = "Fantasia"
-    ficcao_cientifica = "Ficção Científica"
-    terror = "Terror"
+    fantasy = "Fantasy"
+    science_fiction = "Science Fiction"
+    horror = "Horror"
     romance = "Romance"
-    animacao = "Animação"
+    animation = "Animation"
     crime = "Crime"
-    documentario = "Documentário"
+    documentary = "Documentary"
     suspense = "Suspense"
     musical = "Musical"
-    misterio = "Mistério"
-    guerra = "Guerra"
+    mystery = "Mystery"
+    war = "War"
     western = "Western"
+    thriller = "Thriller"
+    history = "History"
+    sport = "Sport"
+    talk_show = "Talk Show"
+    reality_show = "Reality Show"
+    superhero = "Superhero"
 
 
 def create_decades_enum():

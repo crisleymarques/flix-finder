@@ -15,23 +15,23 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message["content"]
 
-def get_prompt(genre, decade, age_rating, movie_reference):
+
+def get_prompt(series_or_movie, genre, decade, age_rating, movie_reference):
     prompt = f"""
-    Sua tarefa é gerar uma recomendação de um filme ou série de TV para um usuário de uma 
-    aplicação.
-    
-    Recomende um filme do gênero: {genre}, 
-    com data de lançamento entre {decade.value} e {int(decade.value) + 9},
-    com classificação indicativa: {age_rating},
-    que possua características similares à {movie_reference}.
+    Your task is to generate a personalized {series_or_movie} recommendation for an application user.
 
-    Sua resposta deve conter o nome do filme ou série de TV, o ano de lançamento e uma breve 
-    descrição sobre ele contendo no máximo 200 caracteres.
+    Recommend a {series_or_movie} in the {genre} genre,
+    released between {decade.value} and {int(decade.value) + 9},
+    with an age rating of {age_rating},
+    that has similar characteristics to {movie_reference}.
 
-    Explique o porquê você recomendaria este filme ou série de TV para o usuário, justificando
-    os motivos que levaram a escolha deste filme ou série de TV, dado o contexto da recomendação.
+    Your response should include the name of the {series_or_movie}, the release year, and a brief
+    description of it, containing a maximum of 200 characters.
 
-    Em seguida, diga uma curiosidade sobre o filme ou série de TV que você recomendou.
+    Explain why you would recommend this {series_or_movie} to the user, justifying
+    the reasons that led to the choice, given the context of the recommendation.
+
+    Additionally, share an interesting fact about the recommended {series_or_movie}.
 
     """
     return prompt
