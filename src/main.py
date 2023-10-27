@@ -14,8 +14,9 @@ def send_prompt(
     genre: Genre,
     decade: Decades,
     age_rating: AgeRating,
-    movie_reference: str, 
+    positive_reference: str, 
+    negative_reference: str
 ):
-    prompt = get_prompt(series_or_movie, genre, decade, age_rating, movie_reference)
+    prompt = get_prompt(series_or_movie, genre, decade, age_rating, positive_reference, negative_reference)
     print(prompt, flush=True)
     return get_completion(prompt)

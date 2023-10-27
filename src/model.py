@@ -16,14 +16,15 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     return response.choices[0].message["content"]
 
 
-def get_prompt(series_or_movie, genre, decade, age_rating, movie_reference):
+def get_prompt(series_or_movie, genre, decade, age_rating, positive_reference, negative_reference):
     prompt = f"""
     Your task is to generate a personalized {series_or_movie} recommendation for an application user.
 
     Recommend a {series_or_movie} in the {genre} genre,
     released between {decade.value} and {int(decade.value) + 9},
     with an age rating of {age_rating},
-    that has similar characteristics to {movie_reference}.
+    that has similar characteristics to {positive_reference} 
+    and it is not similar to {negative_reference}.
 
     Your response should include the name of the {series_or_movie}, the release year, and a brief
     description of it, containing a maximum of 200 characters.
