@@ -1,8 +1,18 @@
 from fastapi import FastAPI, Form
+from fastapi.middleware.cors import CORSMiddleware
 from data_models import *
 from model import get_prompt, get_completion
 
 flixfinder = FastAPI()
+
+# disable cors
+flixfinder.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @flixfinder.get("/")
 def home():
