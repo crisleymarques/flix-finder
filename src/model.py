@@ -15,42 +15,24 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message["content"]
 
-def get_prompt(movie_description):
+
+def get_prompt(series_or_movie, genre, decade, age_rating, positive_reference, negative_reference):
     prompt = f"""
-    Sua tarefa é gerar uma recomendação de um filme ou série de TV para um usuário de uma 
-    aplicação.
-    
-    Recomende um filme do gênero: {movie_description.genre}, 
-    com data de lançamento entre {movie_description.decade} e {movie_description.decade + 9}, 
-    que possua características similares à {movie_description.movie_reference}.
+    Your task is to generate a personalized {series_or_movie} recommendation for an application user.
 
-    Sua resposta deve conter o nome do filme ou série de TV, o ano de lançamento e uma breve 
-    descrição sobre ele contendo no máximo 200 caracteres.
+    Recommend a {series_or_movie} in the {genre} genre,
+    released between {decade.value} and {int(decade.value) + 9},
+    with an age rating of {age_rating},
+    that has similar characteristics to {positive_reference} 
+    and it is not similar to {negative_reference}.
 
-    ---
+    Your response should include the name of the {series_or_movie}, the release year, and a brief
+    description of it, containing a maximum of 200 characters.
 
-    Explicação da Recomendação:
+    Explain why you would recommend this {series_or_movie} to the user, justifying
+    the reasons that led to the choice, given the context of the recommendation.
 
-    {movie_description.movie_reference} é um filme {movie_description.genre} lançado em {movie_description.decade}.
-    Acredito que este filme seja uma excelente recomendação para você, pois compartilha características similares com {movie_description.movie_reference}.
-    Ele é conhecido por sua inovadora utilização de efeitos visuais e temas filosóficos.
-
-    ---
-
-    Por que eu recomendei este filme?
-
-    Esta recomendação foi feita com base em análises de similaridade entre os atributos de {movie_description.movie_reference} e outros filmes no mesmo gênero e década de lançamento. Acredito que você irá apreciar as semelhanças entre essas obras.
-
-    ---
-
-    Curiosidade sobre {movie_description.movie_reference}:
-
-    Aqui está uma curiosidade interessante sobre o filme {movie_description.movie_reference}:
-    O famoso efeito de câmera "bullet time", que foi popularizado por {movie_description.movie_reference}, foi criado através de uma técnica revolucionária de filmagem.
-
-    ---
-
-    Aproveite a recomendação e divirta-se assistindo!
+    Additionally, share an interesting fact about the recommended {series_or_movie}.
 
     """
     return prompt
