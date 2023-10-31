@@ -50,7 +50,11 @@ docker run -p 8000:8000 fastapi/flixfinder
 The backend will be accessible at http://localhost:8000.
 
 ### Running the Frontend
-1. Go to the front folder and run.
+1. Go to the front folder:
+```bash	
+cd front
+```
+2. Install the dependencies
 ```bash
 npm install 
 ```
